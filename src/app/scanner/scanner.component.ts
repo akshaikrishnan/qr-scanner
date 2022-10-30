@@ -2,6 +2,7 @@ import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NgxScannerQrcodeService, SelectedFiles } from 'ngx-scanner-qrcode';
 import { BehaviorSubject, from, Observable, Subject } from 'rxjs';
 import { distinctUntilChanged, take } from 'rxjs/operators';
+import { PwaService } from '../services/pwa.service';
 
 @Component({
   selector: 'app-scanner',
@@ -39,7 +40,10 @@ export class ScannerComponent implements OnInit {
 
   public selectedFiles: SelectedFiles[] = [];
 
-  constructor(private qrcode: NgxScannerQrcodeService) {}
+  constructor(
+    private qrcode: NgxScannerQrcodeService,
+    private pwa: PwaService
+  ) {}
 
   public onError(e: any): void {
     alert(e);
@@ -77,6 +81,10 @@ export class ScannerComponent implements OnInit {
     return str.startsWith('http') || str.startsWith('upi');
   }
   ngOnInit(): void {
+    this.pwa.installModal.subscribe((data: any) => {
+      this.modal = true;
+      console.log(data);
+    });
     if (localStorage.getItem('scannedData'))
       this.scannedData = new Array(
         localStorage.getItem('scannedData')?.split(',')
