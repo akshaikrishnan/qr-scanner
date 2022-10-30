@@ -2,6 +2,10 @@
     <h1>ngx-scanner-qrcode</h1>
 
     <!-- ngx-scanner-qrcode -->
+    <div class="scanner-wrapper">
+        <div></div>
+        <div class="scanner"></div>
+    </div>
     <ngx-scanner-qrcode #action="scanner" (event)="onSuccess(action)" [text]="textConfig" [config]="config" (error)="onError($event)"></ngx-scanner-qrcode>
 
     <!-- data  -->
@@ -48,42 +52,22 @@
     Cap
   </button> -->
 
-    <br />
-
-    <!-- For select files -->
-    <input #file type="file" (change)="onSelects(file.files)" [multiple]="'multiple'" [accept]="'.jpg, .png, .gif, .jpeg'" class="btn btn-success my-2" />
-
-    <ol>
-        <li *ngFor="let row of selectedFiles">
-            <ngx-scanner-qrcode #action="scanner" [src]="row.base64 || ''" [config]="{ style: { width: '100%', background: '#000' } }">
-                <p class="data">{{ action.data | async }}</p>
-            </ngx-scanner-qrcode>
-        </li>
-    </ol>
-
-    <!-- License -->
-    <p class="center">
-        <a href="https://github.com/id1945/ngx-scanner-face/blob/master/LICENSE">MIT License</a
-    >
-  </p>
-
-  <!-- Copyright -->
-  <p class="center">Copyright (c) 2022 DaiDH</p>
+    <!-- Copyright -->
 </div>
 
 <input [checked]="modal" type="checkbox" id="my-modal" class="modal-toggle" />
-<div class="modal">
-  <div class="modal-box">
-    <h3 class="font-bold text-lg">Scan Successfull</h3>
-    <p class="py-4">
-      {{ action.data | async }}
-    </p>
-    <div class="modal-action">
-      <a *ngIf="url != ''" [href]="url" class="btn btn-primary">Open Link</a>
+<div class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+        <h3 class="font-bold text-lg">Scan Successfull</h3>
+        <p class="py-4">
+            {{ action.data | async }}
+        </p>
+        <div class="modal-action">
+            <a *ngIf="url != ''" [href]="url" class="btn btn-primary">Open Link</a>
 
-        <label for="my-modal" class="btn">Yay!</label>
-</div>
-</div>
+            <label for="my-modal" class="btn">Yay!</label>
+        </div>
+    </div>
 </div>
 
 <!-- Put this part before </body> tag -->
@@ -92,7 +76,7 @@
     <div class="modal-box text-center">
         <h3 class="font-bold text-lg">Install QR Scanner</h3>
         <div class="mt-4 flex justify-center">
-            <img src="../../assets/icons/icon-72x72.png" alt="" />
+            <img width="160" src="../../assets/undraw_app_installation_re_h36x.svg" alt="" />
         </div>
 
         <p class="py-4">

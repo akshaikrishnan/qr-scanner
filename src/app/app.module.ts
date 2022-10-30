@@ -11,10 +11,12 @@ import { HistoryComponent } from './history/history.component';
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { PwaService } from './services/pwa.service';
+import { UploadComponent } from './upload/upload.component';
+import { AboutComponent } from './about/about.component';
 const initializer = (pwaService: PwaService) => () =>
   pwaService.initPwaPrompt();
 @NgModule({
-  declarations: [AppComponent, ScannerComponent, HistoryComponent],
+  declarations: [AppComponent, ScannerComponent, HistoryComponent, UploadComponent, AboutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

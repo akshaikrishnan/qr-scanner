@@ -15,7 +15,7 @@ export class ScannerComponent implements OnInit {
     color: 'white',
   };
   modal = false;
-  pwaPrompt = !false;
+  pwaPrompt = false;
   pwaEvent: any;
   source$: any;
   scanObservable = new Subject<any>();

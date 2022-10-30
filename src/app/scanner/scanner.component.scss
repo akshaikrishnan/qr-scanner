@@ -1,3 +1,99 @@
 ngx-scanner-qrcode canvas {
     border-radius: 20px;
 }
+
+.scanner-wrapper {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    padding: 25px 30px;
+    transition: transform 0.6s ease-out;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.scanner-wrapper:before,
+.scanner-wrapper:after,
+.scanner-wrapper> :first-child:before,
+.scanner-wrapper> :first-child:after {
+    position: absolute;
+    width: 10%;
+    height: 15%;
+    border-color: white;
+    border-style: solid;
+    z-index: 29;
+    content: " ";
+}
+
+
+/* top left corner */
+
+.scanner-wrapper:before {
+    top: 0;
+    left: 0;
+    border-width: 2px 0 0 2px;
+}
+
+
+/* top right corner */
+
+.scanner-wrapper:after {
+    top: 0;
+    right: 0;
+    border-width: 2px 2px 0 0;
+}
+
+
+/* bottom right corner */
+
+.scanner-wrapper> :first-child:before {
+    bottom: 0;
+    right: 0;
+    border-width: 0 2px 2px 0;
+}
+
+
+/* bottom left corner */
+
+.scanner-wrapper> :first-child:after {
+    bottom: 0;
+    left: 0;
+    border-width: 0 0 2px 2px;
+}
+
+
+/* barcode bars */
+
+
+/* animated laser beam */
+
+.scanner {
+    width: 100%;
+    height: 3px;
+    background-color: red;
+    opacity: 0.7;
+    position: relative;
+    box-shadow: 0px 0px 8px 10px rgba(170, 11, 23, 0.49);
+    top: 50%;
+    animation-name: scan;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes scan {
+    0% {
+        box-shadow: 0px 0px 8px 10px rgba(170, 11, 23, 0.49);
+        top: 50%;
+    }
+    25% {
+        box-shadow: 0px 6px 8px 10px rgba(170, 11, 23, 0.49);
+        top: 5px;
+    }
+    75% {
+        box-shadow: 0px -6px 8px 10px rgba(170, 11, 23, 0.49);
+        top: 98%;
+    }
+}

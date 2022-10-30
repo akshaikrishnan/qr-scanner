@@ -65,9 +65,11 @@
     </button>
     </div>
 </div>
-<router-outlet>Loading</router-outlet>
+<div class="max-h-fit flex items-center">
+    <router-outlet></router-outlet>
+</div>
 <div class="btm-nav">
-    <button class="text-info">
+    <button routerLink="upload" [routerLinkActive]="'active'" class="text-info">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"

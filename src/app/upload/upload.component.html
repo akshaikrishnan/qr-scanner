@@ -1,0 +1,12 @@
+<!-- For select files -->
+<div class="container text-center">
+    <input #file type="file" (change)="onSelects(file.files)" [multiple]="'multiple'" [accept]="'.jpg, .png, .gif, .jpeg'" class="file-input file-input-bordered file-input-primary w-full max-w-xs my-2" />
+
+    <ol>
+        <li *ngFor="let row of selectedFiles">
+            <ngx-scanner-qrcode #action="scanner" [src]="row.base64 || ''" [config]="{ style: { width: '100%', background: '#000' } }">
+            </ngx-scanner-qrcode>
+            <p class="data">{{ action.data | async }}</p>
+        </li>
+    </ol>
+</div>
