@@ -54,6 +54,7 @@ export class ScannerComponent implements OnInit {
     if (this.pwaEvent != null) {
       this.pwaEvent.prompt();
     }
+    this.pwaPrompt = false;
   }
 
   public handle(action: any, fn: string): void {
