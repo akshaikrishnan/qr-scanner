@@ -15,6 +15,8 @@ export class ScannerComponent implements OnInit {
     color: 'white',
   };
   modal = false;
+  pwaPrompt = !false;
+  pwaEvent: any;
   source$: any;
   scanObservable = new Subject<any>();
   scannedData: any;
@@ -47,6 +49,11 @@ export class ScannerComponent implements OnInit {
 
   public onError(e: any): void {
     alert(e);
+  }
+  installPWA() {
+    if (this.pwaEvent != null) {
+      this.pwaEvent.prompt();
+    }
   }
 
   public handle(action: any, fn: string): void {
@@ -82,7 +89,8 @@ export class ScannerComponent implements OnInit {
   }
   ngOnInit(): void {
     this.pwa.installModal.subscribe((data: any) => {
-      this.modal = true;
+      this.pwaPrompt = true;
+      this.pwaEvent = data;
       console.log(data);
     });
     if (localStorage.getItem('scannedData'))

@@ -85,3 +85,21 @@
 </div>
 </div>
 </div>
+
+<!-- Put this part before </body> tag -->
+<input [checked]="pwaPrompt" type="checkbox" id="my-modal-6" class="modal-toggle" />
+<div class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+        <h3 class="font-bold text-lg">Install QR Scanner</h3>
+        <p class="py-4">
+            Install this QR Scanner on your device for offline use. <br />
+            <small>(No downloads required)</small>
+        </p>
+        <div class="modal-action">
+            <label for="my-modal-6" class="btn btn-outline">Close</label>
+            <button (click)="installPWA()" class="btn btn-primary">
+        Install App
+      </button>
+        </div>
+    </div>
+</div>
