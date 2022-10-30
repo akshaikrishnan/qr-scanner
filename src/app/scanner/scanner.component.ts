@@ -26,8 +26,8 @@ export class ScannerComponent implements OnInit {
       audio: false,
       video: {
         facingMode: 'environment', // To require the rear camera https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
-        width: { ideal: 1280, max: 1920 },
-        height: { ideal: 720, max: 1080 },
+        width: { ideal: 720, max: 1080 },
+        height: { ideal: 440, max: 720 },
         frameRate: { ideal: 24 },
 
         style: {
