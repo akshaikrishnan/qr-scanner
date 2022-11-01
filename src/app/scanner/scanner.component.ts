@@ -98,6 +98,9 @@ export class ScannerComponent implements OnInit {
       this.scannedData = new Array(
         localStorage.getItem('scannedData')?.split(',')
       );
+    else {
+      localStorage.setItem('scannedData', ',');
+    }
     this.scanObservable
       .pipe(distinctUntilChanged())
       .subscribe((data: any) => this.writeLocalData(data));

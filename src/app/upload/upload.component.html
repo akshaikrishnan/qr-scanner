@@ -1,6 +1,6 @@
 <!-- For select files -->
-<div class="container text-center">
-    <input #file type="file" (change)="onSelects(file.files)" [multiple]="'multiple'" [accept]="'.jpg, .png, .gif, .jpeg'" class="file-input file-input-bordered file-input-primary w-full max-w-xs my-2" />
+<div class="container w-screen grid place-items-center text-center">
+    <input #file type="file" (change)="onSelects(file.files)" [multiple]="'multiple'" [accept]="'.jpg, .png, .gif, .jpeg'" class="file-input file-input-bordered file-input-primary w-full max-w-xs my-20" />
 
     <ol>
         <li *ngFor="let row of selectedFiles">
