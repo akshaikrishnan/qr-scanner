@@ -19,7 +19,7 @@
           d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
         ></path>
       </svg>
-            <span>{{ action.data | async }}</span>
+            <span>{{ action.data | async | slice: 0:20 }}</span>
         </div>
     </div>
     <p class="data"></p>
@@ -60,34 +60,44 @@
     <div class="modal-box">
         <h3 class="font-bold text-lg">Scan Successfull</h3>
         <p class="py-4">
-            {{ action.data | async }}
+            {{ action.data | async | slice: 0:25 }}
         </p>
         <div class="modal-action">
-            <a *ngIf="url != ''" [href]="url" class="btn btn-primary">Open Link</a>
+            <a *ngIf="url != ''" target="_blank" [href]="url" class="btn btn-primary">Open Link</a
+      >
 
-            <label for="my-modal" class="btn">Close</label>
-        </div>
+      <label for="my-modal" class="btn">Close</label>
     </div>
+  </div>
 </div>
 
 <!-- Put this part before </body> tag -->
-<input [checked]="pwaPrompt" type="checkbox" id="my-modal-6" class="modal-toggle" />
+<input
+  [checked]="pwaPrompt"
+  type="checkbox"
+  id="my-modal-6"
+  class="modal-toggle"
+/>
 <div class="modal modal-bottom sm:modal-middle">
-    <div class="modal-box text-center">
-        <h3 class="font-bold text-lg">Install QR Scanner</h3>
-        <div class="mt-4 flex justify-center">
-            <img width="160" src="../../assets/undraw_app_installation_re_h36x.svg" alt="" />
-        </div>
+  <div class="modal-box text-center">
+    <h3 class="font-bold text-lg">Install QR Scanner</h3>
+    <div class="mt-4 flex justify-center">
+      <img
+        width="160"
+        src="../../assets/undraw_app_installation_re_h36x.svg"
+        alt=""
+      />
+    </div>
 
-        <p class="py-4">
-            Install this QR Scanner on your device for offline use. <br />
-            <small>(No downloads required)</small>
-        </p>
-        <div class="modal-action">
-            <label for="my-modal-6" class="btn btn-outline">Close</label>
-            <button (click)="installPWA()" class="btn btn-primary">
+    <p class="py-4">
+      Install this QR Scanner on your device for offline use. <br />
+      <small>(No downloads required)</small>
+    </p>
+    <div class="modal-action">
+      <label for="my-modal-6" class="btn btn-outline">Close</label>
+      <button (click)="installPWA()" class="btn btn-primary">
         Install App
       </button>
-        </div>
     </div>
+  </div>
 </div>

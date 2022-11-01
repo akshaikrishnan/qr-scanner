@@ -13,12 +13,21 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { PwaService } from './services/pwa.service';
 import { UploadComponent } from './upload/upload.component';
 import { AboutComponent } from './about/about.component';
+import { AppUpdateService } from './services/app-update.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 const initializer = (pwaService: PwaService) => () =>
   pwaService.initPwaPrompt();
 @NgModule({
-  declarations: [AppComponent, ScannerComponent, HistoryComponent, UploadComponent, AboutComponent],
+  declarations: [
+    AppComponent,
+    ScannerComponent,
+    HistoryComponent,
+    UploadComponent,
+    AboutComponent,
+  ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     NgxScannerQrcodeModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
